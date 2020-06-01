@@ -12,187 +12,261 @@
   <link rel="stylesheet" href="style.css" />
   <title>Work Day Scheduler</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script><!-- brings in moment and jquery tags so that they are in the header--> 
 
 </head>
 
 <body>
   <header class="jumbotron">
-    <h1 class="display-3">Work Day Scheduler</h1>
+    <h1 class="display-3">Work Day Scheduler</h1><!--Header--> 
     <p class="lead">A simple calendar app for scheduling your work day</p>
-    <p id="currentDay" class="lead"></p>
+    <p id="currentDay" class="lead"></p><!--where our date will de displayed--> 
   </header>
-  <div class="container">
-    <div id="hour-9" class="row time-block past">
+  <div class="container"><!--container that will hold our blocks--> 
+    <div id="hour-9" class="row time-block "><!--classes for styling--> 
       <div class="col-md-1 hour">
-        9am
+        9am<!--Text--> 
       </div>
-      <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1"> save</button>
+      <textarea id="9" class="col-md-10 description"></textarea><!-- Text area for user input. id for textarea later finding--> 
+      <button id="nine" class="btn saveBtn col-md-1"> save</button><!--Button for the user to save tasks with an id--> 
     </div>
-    <div id="hour-10" class="row time-block past">
+    <div id="hour-10" class="row time-block "><!--repeated--> 
       <div class="col-md-1 hour">
         10am
       </div>
-      <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1"> save</button>
+      <textarea id="10" class="col-md-10 description"></textarea>
+      <button id="ten" class="btn saveBtn col-md-1"> save</button>
     </div>
-    <div id="hour-11" class="row time-block past">
+    <div id="hour-11" class="row time-block ">
       <div class="col-md-1 hour">
         11am
       </div>
-      <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1"> save</button>
+      <textarea id="11" class="col-md-10 description"></textarea>
+      <button id="elevin" class="btn saveBtn col-md-1"> save</button>
     </div>
-    <div id="hour-12" class="row time-block past">
+    <div id="hour-12" class="row time-block ">
       <div class="col-md-1 hour">
         12pm
       </div>
-      <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1"> save</button>
+      <textarea id="12" class="col-md-10 description"></textarea>
+      <button id="twelve" class="btn saveBtn col-md-1"> save</button>
     </div>
-    <div id="hour-13" class="row time-block present">
+    <div id="hour-13" class="row time-block ">
       <div class="col-md-1 hour">
         1pm
       </div>
-      <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1"> save</button>
+      <textarea id="13" class="col-md-10 description"></textarea>
+      <button id="thirteen" class="btn saveBtn col-md-1"> save</button>
     </div>
-    <div id="hour-14" class="row time-block past">
+    <div id="hour-14" class="row time-block ">
       <div class="col-md-1 hour">
         2pm
       </div>
-      <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1"> save</button>
+      <textarea id="14" class="col-md-10 description"></textarea>
+      <button id="fourteen" class="btn saveBtn col-md-1"> save</button>
     </div>
-    <div id="hour-15" class="row time-block past">
+    <div id="hour-15" class="row time-block ">
       <div class="col-md-1 hour">
         3pm
       </div>
-      <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1"> save</button>
+      <textarea id="15" class="col-md-10 description"></textarea>
+      <button id="fifthteen" class="btn saveBtn col-md-1"> save</button>
     </div>
-    <div id="hour-16" class="row time-block past">
+    <div id="hour-16" class="row time-block ">
       <div class="col-md-1 hour">
         4pm
       </div>
-      <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1"> save</button>
+      <textarea id="16" class="col-md-10 description"></textarea>
+      <button id="sixteen" class="btn saveBtn col-md-1"> save</button>
     </div>
-    <div id="hour-17" class="row time-block future">
+    <div id="hour-17" class="row time-block">
       <div class="col-md-1 hour">
         5pm
       </div>
-      <textarea class="col-md-10 description"></textarea>
-      <button class="btn saveBtn col-md-1"> save</button>
+      <textarea id="17" class="col-md-10 description"></textarea>
+      <button id="seventeen" class="btn saveBtn col-md-1"> save</button>
     </div>
 
 
-   
-    <script type="text/javascript">
-  
-      const m=moment();
-     // $(".row time-block past").css(".row time-block future");
-     // $("#hour-16").attr(".row time-block past",".row time-block present");
-    //  $("#div1").addClass("important blue");
-    
-      $("#hour-16").addClass("row time-block present");
-      console.log(moment().endOf('day').fromNow());
-      //if()
-      if(m.hour()>9){
-        $("#hour-9").addClass("row time-block past");
-      }
-      if(m.hour()==9){
-        $("#hour-9").addClass("row time-block present");
-      }
-      if(m.hour()<9){
-        $("#hour-9").addClass("row time-block future");
-      }
-      if(m.hour()>10){
-        $("#hour-10").addClass("row time-block past");
-      }
-      if(m.hour()==10){
-        $("#hour-10").addClass("row time-block present");
-      }
-      if(m.hour()<10){
-        $("#hour-10").addClass("row time-block future");
-      }
-      if(m.hour()>11){
-        $("#hour-11").addClass("row time-block past");
-      }
-      if(m.hour()==11){
-        $("#hour-11").addClass("row time-block present");
-      }
-      if(m.hour()<11){
-        $("#hour-11").addClass("row time-block future");
-      }
-      if(m.hour()<12){
-        $("#hour-12").addClass("row time-block future");
-      }
-      if(m.hour()>12){
-        $("#hour-12").addClass("row time-block past");
-      }
-      if(m.hour()==12){
-        $("#hour-12").addClass("row time-block present");
-      }
-      if(m.hour()<13){
-        $("#hour-13").addClass("row time-block future");
-      }
-      if(m.hour()>13){
-        $("#hour-13").addClass("row time-block past");
-      }
-      if(m.hour()==13){
-        $("#hour-13").addClass("row time-block present");
-      }
-      if(m.hour()<13){
-        $("#hour-13").addClass("row time-block future");
-      }
-      if(m.hour()>14){
-        $("#hour-14").addClass("row time-block past");
-      }
-      if(m.hour()==14){
-        $("#hour-14").addClass("row time-block present");
-      }
-      if(m.hour()<14){
-        $("#hour-14").addClass("row time-block future");
-      }
-      if(m.hour()>15){
-        $("#hour-15").addClass("row time-block past");
-      }
-      if(m.hour()==15){
-        $("#hour-15").addClass("row time-block present");
-      }
-      if(m.hour()<15){
-        $("#hour-15").addClass("row time-block future");
-      }
-      if(m.hour()>16){
-        $("#hour-16").addClass("row time-block past");
-      }
-      if(m.hour()==16){
-        $("#hour-16").addClass("row time-block present");
-      }
-      if(m.hour()<16){
-        $("#hour-16").addClass("row time-block future");
-      }
-      if(m.hour()>17){
-        $("#hour-17").addClass("row time-block past");
-      }
-      if(m.hour()==17){
-        $("#hour-17").addClass("row time-block present");
-      }
-      if(m.hour()<12){
-        $("#hour-17").addClass("row time-block future");
-      }
-      //value="5"
-      // console.log(m.format("[date:] dddd MMM Mo"));
-      // console.log(m.format("L"));
-      $("#currentDay").append(m.format("[Date:] dddd, MMMM Do YYYY"));
-     // moment().format('MMMM Do YYYY, h:mm:ss a')
-      //console.log(
-      //console.log(m.("L"));
-      //perhaps give the hours values and push those into an object then loop through and set attributes that way
-    </script>
-  
-</body>
 
+    <script type="text/javascript">
+      
+      $(document).ready(function () {
+        // sets all values of textarea equal to previous value
+        $("#10").text(localStorage.getItem("comment10"));
+        $("#9").text(localStorage.getItem("comment9"));
+        $("#11").text(localStorage.getItem("comment11"));
+        $("#12").text(localStorage.getItem("comment12"));
+        $("#13").text(localStorage.getItem("comment13"));
+        $("#14").text(localStorage.getItem("comment14"));
+        $("#15").text(localStorage.getItem("comment15"));
+        $("#16").text(localStorage.getItem("comment16"));
+        $("#17").text(localStorage.getItem("comment17"));
+        $("#ten").click(function () {
+          
+        
+          var comment10 = $.trim($("#10").val());
+          //sets the input value into local storage
+           localStorage.setItem("comment10", comment10);
+           
+            console.log(comment10)
+    
+        });
+        $("#nine").click(function () {
+          var comment9 = $.trim($("#9").val());
+          
+          localStorage.setItem("comment9", comment9);
+          
+           console.log(comment9)
+
+        });
+        $("#elevin").click(function () {
+          var comment11 = $.trim($("#11").val());
+          
+          localStorage.setItem("comment11", comment11);
+          
+           console.log(comment11)
+
+        });
+        $("#twelve").click(function () {
+          var comment12 = $.trim($("#12").val());
+          
+          localStorage.setItem("comment12", comment12);
+          
+           console.log(comment12)
+
+        });
+        $("#thirteen").click(function () {
+          var comment13 = $.trim($("#13").val());
+          
+          localStorage.setItem("comment13", comment13);
+          
+           console.log(comment13)
+
+        });
+        $("#fourteen").click(function () {
+          var comment14 = $.trim($("#14").val());
+          
+          localStorage.setItem("comment14", comment14);
+          
+           console.log(comment14)
+        });
+        $("#fifthteen").click(function () {
+          var comment15 = $.trim($("#15").val());
+          
+          localStorage.setItem("comment15", comment15);
+          
+           console.log(comment15)
+
+        });
+        $("#sixteen").click(function () {
+          var comment16 = $.trim($("#16").val());
+          
+          localStorage.setItem("comment16", comment16);
+          
+           console.log(comment16)
+        });
+        $("#seventeen").click(function () {
+          var comment17 = $.trim($("#17").val());
+          
+          localStorage.setItem("comment17", comment17);
+          
+           console.log(comment16)
+        });
+
+
+
+        const m = moment();// gets the exact moment in time
+      
+        console.log(moment().endOf('day').fromNow());
+        
+        if (m.hour() > 9) {// if moment is after time the block is past/grey
+          $("#hour-9").addClass("row time-block past");
+        }
+        if (m.hour() == 9) {// if moment is equal to the time the block is present/red
+          $("#hour-9").addClass("row time-block present");
+        }
+        if (m.hour() < 9) {// if moment is before time the block is future/green
+          $("#hour-9").addClass("row time-block future");
+        }
+        if (m.hour() > 10) {
+          $("#hour-10").addClass("row time-block past");
+        }
+        if (m.hour() == 10) {
+          $("#hour-10").addClass("row time-block present");
+        }
+        if (m.hour() < 10) {
+          $("#hour-10").addClass("row time-block future");
+        }
+        if (m.hour() > 11) {
+          $("#hour-11").addClass("row time-block past");
+        }
+        if (m.hour() == 11) {
+          $("#hour-11").addClass("row time-block present");
+        }
+        if (m.hour() < 11) {
+          $("#hour-11").addClass("row time-block future");
+        }
+        if (m.hour() < 12) {
+          $("#hour-12").addClass("row time-block future");
+        }
+        if (m.hour() > 12) {
+          $("#hour-12").addClass("row time-block past");
+        }
+        if (m.hour() == 12) {
+          $("#hour-12").addClass("row time-block present");
+        }
+        if (m.hour() > 13) {
+          $("#hour-13").addClass("row time-block past");
+        }
+        if (m.hour() == 13) {
+          $("#hour-13").addClass("row time-block present");
+        }
+        if (m.hour() < 13) {
+          $("#hour-13").addClass("row time-block future");
+        }
+        if (m.hour() > 14) {
+          $("#hour-14").addClass("row time-block past");
+        }
+        if (m.hour() == 14) {
+          $("#hour-14").addClass("row time-block present");
+        }
+        if (m.hour() < 14) {
+          $("#hour-14").addClass("row time-block future");
+        }
+        if (m.hour() > 15) {
+          $("#hour-15").addClass("row time-block past");
+        }
+        if (m.hour() == 15) {
+          $("#hour-15").addClass("row time-block present");
+        }
+        if (m.hour() < 15) {
+          $("#hour-15").addClass("row time-block future");
+        }
+        if (m.hour() > 16) {
+          $("#hour-16").addClass("row time-block past");
+        }
+        if (m.hour() == 16) {
+          $("#hour-16").addClass("row time-block present");
+        }
+        if (m.hour() < 16) {
+          $("#hour-16").addClass("row time-block future");
+        }
+        if (m.hour() > 17) {
+          $("#hour-17").addClass("row time-block past");
+        }
+        if (m.hour() == 17) {
+          $("#hour-17").addClass("row time-block present");
+        }
+        
+        $("#currentDay").append(m.format("[Date:] dddd, MMMM Do YYYY"));
+        $("#Day").append(m.format('l'));
+        //moment().format('l'); 
+      });
+    </script>
+
+</body>
+<footer id="Day" class="last">
+  
+</footer>
 </html>
