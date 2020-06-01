@@ -258,6 +258,9 @@
         if (m.hour() == 17) {
           $("#hour-17").addClass("row time-block present");
         }
+         if (m.hour() < 17) {
+          $("#hour-17").addClass("row time-block future");
+        }
         
         $("#currentDay").append(m.format("[Date:] dddd, MMMM Do YYYY"));
         $("#Day").append(m.format('l'));
